@@ -10,12 +10,12 @@ const requireLogin = require('../middleware/requireLogin')
 const nodemailer = require('nodemailer')
 const sendgridTransport = require('nodemailer-sendgrid-transport')
 const {SENDGRID_API,EMAIL} = require('../config/keys')
-//
+// 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
 
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth:{
-        api_key:SENDGRID_API
+        api_key:"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"
     }
 }))
 
@@ -42,9 +42,11 @@ router.post('/signup',(req,res)=>{
             .then(user=>{
                 transporter.sendMail({
                     to:user.email,
-                    from:"no-reply@insta.com",
-                    subject:"signup success",
-                    html:"<h1>welcome to instagram</h1>"
+                    name:"Insta®o",
+                    from:"robensasje@gmail.com",
+                    subject:"Inst®o Welcome!!!",
+                    html:`<h1>Welcome to Inst®o</h1>
+                    <p> the place where magic happens :) </p> `
                 })
                 res.json({message:"saved successfully"})
             })
@@ -105,13 +107,15 @@ router.post('/reset-password',(req,res)=>{
              user.save().then((result)=>{
                  transporter.sendMail({
                      to:user.email,
-                     from:"no-replay@insta.com",
-                     subject:"password reset",
+                     nickname:"Insta®o",
+                     from:  "robensasje@gmail.com",
+                     subject:"Inst®o Password reset",
                      html:`
-                     <p>You requested for password reset</p>
-                     <h5>click in this <a href="${EMAIL}/reset/${token}">link</a> to reset password</h5>
-                     `
-                 })
+                     <h1>Inst®o</h1>
+                     <p>You requested a password reset</p>
+                      <p>If you did not..,  to bad  :) </p>
+                     <h5>click on this <a href="${EMAIL}/reset/${token}">link</a> to reset password</h5>
+                     `                })
                  res.json({message:"check your email"})
              })
 
