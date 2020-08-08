@@ -57,10 +57,12 @@ const Profile  = ()=>{
         setImage(file)
     }
    return (
-       <div style={{maxWidth:"550px",margin:"100px auto"}}>
+       <div className= "flext" style={{maxWidth:"550px",margin:"100px auto", paddingLeft: "1px"}}>
            <div style={{
               margin:"18px 0px",
-               borderBottom:"1px solid grey"
+               borderBottom:"1px solid grey",
+
+
            }}>
 
 
@@ -68,20 +70,21 @@ const Profile  = ()=>{
                display:"flex",
                justifyContent:"space-around",
 
+
            }}>
                <div>
-                   <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
+                   <img alt="" style={{width:"160px",height:"160px",borderRadius:"80px"}}
                    src={state?state.pic:"loading"}
                    />
 
                </div>
                <div>
                    <h4>{state?state.name:"loading"}</h4>
-                   <h5>{state?state.email:"loading"}</h5>
-                   <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
-                       <h6>{mypics.length} posts</h6>
-                       <h6>{state?state.followers.length:"0"} followers</h6>
-                       <h6>{state?state.following.length:"0"} following</h6>
+                   <h7>{state?state.email:"loading"}</h7>
+                   <div style={{display:"flex",justifyContent:"space-between",width:"75%"}}>
+                       <h7 style={{paddingRight: "4px"}}>{mypics.length} posts</h7>
+                       <h7 style={{paddingRight: "4px"}}>{state?state.followers.length:"0"} followers</h7>
+                       <h7 style={{paddingRight: "4px"}}>{state?state.following.length:"0"} following</h7>
                    </div>
 
                </div>

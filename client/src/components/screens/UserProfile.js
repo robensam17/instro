@@ -3,7 +3,7 @@ import {UserContext} from '../../App'
 import {useParams} from 'react-router-dom'
 const Profile  = ()=>{
     const [userProfile,setProfile] = useState(null)
-    
+
     const {state,dispatch} = useContext(UserContext)
     const {userid} = useParams()
     const [showfollow,setShowFollow] = useState(state?!state.following.includes(userid):true)
@@ -15,7 +15,7 @@ const Profile  = ()=>{
        }).then(res=>res.json())
        .then(result=>{
            //console.log(result)
-         
+
             setProfile(result)
        })
     },[])
@@ -33,7 +33,7 @@ const Profile  = ()=>{
             })
         }).then(res=>res.json())
         .then(data=>{
-        
+
             dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
              localStorage.setItem("user",JSON.stringify(data))
              setProfile((prevState)=>{
@@ -60,10 +60,10 @@ const Profile  = ()=>{
             })
         }).then(res=>res.json())
         .then(data=>{
-            
+
             dispatch({type:"UPDATE",payload:{following:data.following,followers:data.followers}})
              localStorage.setItem("user",JSON.stringify(data))
-            
+
              setProfile((prevState)=>{
                 const newFollower = prevState.user.followers.filter(item=>item != data._id )
                  return {
@@ -75,7 +75,7 @@ const Profile  = ()=>{
                  }
              })
              setShowFollow(true)
-             
+
         })
     }
    return (
@@ -86,20 +86,21 @@ const Profile  = ()=>{
                display:"flex",
                justifyContent:"space-around",
                margin:"18px 0px",
-               borderBottom:"1px solid grey"
+               borderBottom:"1px solid grey",
+               paddingLeft: "1px"
            }}>
                <div>
-                   <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
+                   <img alt=""  style={{width:"160px",height:"160px",borderRadius:"80px", border:"1px solid grey"}}
                    src={userProfile.user.pic}
                    />
                </div>
                <div>
                    <h4>{userProfile.user.name}</h4>
-                   <h5>{userProfile.user.email}</h5>
-                   <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
-                       <h6>{userProfile.posts.length} posts</h6>
-                       <h6>{userProfile.user.followers.length} followers</h6>
-                       <h6>{userProfile.user.following.length} following</h6>
+                   <h7>{userProfile.user.email}</h7>
+                   <div style={{display:"flex",justifyContent:"space-between",width:"75%"}}>
+                       <h7 style={{paddingRight: "4px"}}>{userProfile.posts.length} posts</h7>
+                       <h7 style={{paddingRight: "4px"}}> {userProfile.user.followers.length} followers </h7>
+                       <h7 style={{paddingRight: "4px"}}> {userProfile.user.following.length} following  </h7>
                    </div>
                    {showfollow?
                    <button style={{
@@ -109,7 +110,7 @@ const Profile  = ()=>{
                     >
                         Follow
                     </button>
-                    : 
+                    :
                     <button
                     style={{
                         margin:"10px"
@@ -120,28 +121,28 @@ const Profile  = ()=>{
                         UnFollow
                     </button>
                     }
-                   
-                  
+
+
 
                </div>
            </div>
-     
+
            <div className="gallery">
                {
                    userProfile.posts.map(item=>{
                        return(
-                        <img key={item._id} className="item" src={item.photo} alt={item.title}/>  
+                        <img key={item._id} className="item" src={item.photo} alt={item.title}/>
                        )
                    })
                }
 
-           
+
            </div>
        </div>
-       
-       
+
+
        : <h2>loading...!</h2>}
-       
+
        </>
    )
 }

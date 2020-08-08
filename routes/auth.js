@@ -15,7 +15,7 @@ const {SENDGRID_API,EMAIL} = require('../config/keys')
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth:{
-        api_key:"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"
+        api_key:SENDGRID_API
     }
 }))
 
@@ -43,10 +43,15 @@ router.post('/signup',(req,res)=>{
                 transporter.sendMail({
                     to:user.email,
                     name:"Insta®o",
-                    from:"robensasje@gmail.com",
+                    from:`Insta®o <robensasje@gmail.com>`,
                     subject:"Inst®o Welcome!!!",
                     html:`<h1>Welcome to Inst®o</h1>
-                    <p> the place where magic happens :) </p> `
+                    <p> The place where magic happens :) </p>
+                    <p> This is my ongoing project. I'll be
+                     updating this MERN app frequently. So take a look around
+                    and let me know what you think by leaving a message! </p>
+                    <p> Happy browsing. </p>
+                     `
                 })
                 res.json({message:"saved successfully"})
             })
@@ -108,13 +113,16 @@ router.post('/reset-password',(req,res)=>{
                  transporter.sendMail({
                      to:user.email,
                      nickname:"Insta®o",
-                     from:  "robensasje@gmail.com",
-                     subject:"Inst®o Password reset",
+                     from:  `Insta®o <robensasje@gmail.com>`,
+                     subject:"Inst®o Your request is ready!",
                      html:`
                      <h1>Inst®o</h1>
-                     <p>You requested a password reset</p>
-                      <p>If you did not..,  to bad  :) </p>
-                     <h5>click on this <a href="${EMAIL}/reset/${token}">link</a> to reset password</h5>
+                     <p>You requested a password reset.
+                     Click on the link below to proceed!</p>
+                      <p>If you did not..,  too bad  :) just kidding
+                      you can ignore this email if not , no action required
+                      safety measures are in place!! </p>
+                     <h5>Click on this <a href="${EMAIL}/reset/${token}">link</a> to reset password</h5>
                      `                })
                  res.json({message:"check your email"})
              })
