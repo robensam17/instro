@@ -1,5 +1,6 @@
 import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import NavBar from './components/Navbar'
+import ReactNotifications from './components/ReactNotifications'
 import "./App.css"
 import {BrowserRouter,Route,Switch,useHistory} from 'react-router-dom'
 import Home from './components/screens/Home'
@@ -13,6 +14,7 @@ import SubscribedUserPosts from './components/screens/SubscribesUserPosts'
 import Reset from './components/screens/Reset'
 import NewPassword from './components/screens/Newpassword'
 export const UserContext = createContext()
+
 
 
 const Routing = ()=>{
@@ -56,7 +58,7 @@ const Routing = ()=>{
       <Route path="/reset/:token">
         <NewPassword />
       </Route>
-      
+
     </Switch>
   )
 }
@@ -68,7 +70,8 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routing />
-      
+      <ReactNotifications />
+
     </BrowserRouter>
     </UserContext.Provider>
   );

@@ -90,17 +90,17 @@ const Profile  = ()=>{
                paddingLeft: "1px"
            }}>
                <div>
-                   <img alt=""  style={{width:"160px",height:"160px",borderRadius:"80px", border:"1px solid grey"}}
+                   <img alt=""  style={{width:"160px",height:"160px",borderRadius:"80px", border:"2px solid grey", padding:"2px"}}
                    src={userProfile.user.pic}
                    />
                </div>
-               <div>
+               <div style={{paddingLeft: "4px"}}>
                    <h4>{userProfile.user.name}</h4>
-                   <h7>{userProfile.user.email}</h7>
+
                    <div style={{display:"flex",justifyContent:"space-between",width:"75%"}}>
-                       <h7 style={{paddingRight: "4px"}}>{userProfile.posts.length} posts</h7>
-                       <h7 style={{paddingRight: "4px"}}> {userProfile.user.followers.length} followers </h7>
-                       <h7 style={{paddingRight: "4px"}}> {userProfile.user.following.length} following  </h7>
+                       <h6 style={{paddingRight: "4px"}}>{userProfile.posts.length} posts</h6>
+                       <h6 style={{paddingRight: "4px"}}> {userProfile.user.followers.length} followers </h6>
+                       <h6 style={{paddingRight: "4px"}}> {userProfile.user.following.length} following  </h6>
                    </div>
                    {showfollow?
                    <button style={{

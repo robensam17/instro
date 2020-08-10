@@ -7,7 +7,7 @@ const Post =  mongoose.model("Post")
 
 router.get('/allpost',requireLogin,(req,res)=>{
     Post.find()
-    .populate("postedBy","_id name")
+    .populate("postedBy","_id name pic")
     .populate("comments.postedBy","_id name")
     .sort('-createdAt')
     .then((posts)=>{
@@ -15,7 +15,7 @@ router.get('/allpost',requireLogin,(req,res)=>{
     }).catch(err=>{
         console.log(err)
     })
-    
+
 })
 
 router.get('/getsubpost',requireLogin,(req,res)=>{
@@ -34,9 +34,9 @@ router.get('/getsubpost',requireLogin,(req,res)=>{
 })
 
 router.post('/createpost',requireLogin,(req,res)=>{
-    const {title,body,pic} = req.body 
+    const {title,body,pic} = req.body
     if(!title || !body || !pic){
-      return  res.status(422).json({error:"Plase add all the fields"})
+      return  res.status(422).json({error:"Please add all the fields"})
     }
     req.user.password = undefined
     const post = new Post({
@@ -55,7 +55,7 @@ router.post('/createpost',requireLogin,(req,res)=>{
 
 router.get('/mypost',requireLogin,(req,res)=>{
     Post.find({postedBy:req.user._id})
-    .populate("PostedBy","_id name")
+    .populate("PostedBy","_id name pic")
     .then(mypost=>{
         res.json({mypost})
     })

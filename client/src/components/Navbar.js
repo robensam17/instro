@@ -89,7 +89,7 @@ const NavBar = ()=>{
             type="text"
             placeholder="search users"
             value={search}
-            onChange={(e)=>fetchUsers(e.target.value)}
+            onClick={(e)=>fetchUsers(e.target.value)}
             />
              <ul className="collection">
                {userDetails.map(item=>{
