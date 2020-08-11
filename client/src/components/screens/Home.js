@@ -118,13 +118,13 @@ const Home  = ()=>{
                    return(
 
                      <div className="card home-card" key={item._id}>
-
-
-                            <h4 style={{padding:"6px", height:"13px"}}>
+                            <h4 className="header" style={{padding:"6px", height:"13px"}}>
                             <img alt=""  style={{width:"35px",height:"35px",borderRadius:"100%", border:"1px solid grey"}}
                             src={item.postedBy.pic}
                             />
-                            <Link style={{padding:"5px"}} className="brand-logo" to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name} <h6 style={{}}>{item.createdAt}</h6></Link> {item.postedBy._id == state._id
+
+
+                            <Link style={{padding:"5px"}} className="brand-logo" to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name} <h6 style={{marginTop: "0px"}}><small>{item.createdAt}</small></h6></Link> {item.postedBy._id == state._id
                             && <i className="material-icons" style={{
                                 float:"right"
                             }}
@@ -132,25 +132,26 @@ const Home  = ()=>{
                             >delete</i>
 
                           }</h4>
-                            <div style={{paddingTop:"100px"}} className="card-image">
+
+
+                            <div style={{paddingTop:"50px"}} className="card-image">
                                 <img src={item.photo}/>
+                       <h1 className="brand-logo card-title big" style={{fontSize: "30px", marginTop: "80px", marginBottom: "0px"}}>{item.title}</h1>
+                          <a onClick={()=>{likePost(item._id)}} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
                             </div>
                             <div className="card-content">
-                            <i className="material-icons" style={{color:"red"}}>favorite</i>
-                            {item.likes.includes(state._id)
-                            ?
-                             <i className="material-icons"
-                                    onClick={()=>{unlikePost(item._id)}}
-                              >thumb_down</i>
-                            :
-                            <i className="material-icons"
-                            onClick={()=>{likePost(item._id)}}
-                            >thumb_up</i>
+
+
+                            {
+                                item.likes.map(record=>{
+                                    return(
+                                    <p className="material-icons" style={{color:"red"}}>favorite </p>
+                                    )
+                                })
                             }
 
 
-                                <h6>{item.likes.length} likes</h6>
-                                <h6>{item.title}</h6>
+
                                 <p>{item.body}</p>
                                 {
                                     item.comments.map(record=>{
@@ -164,6 +165,7 @@ const Home  = ()=>{
                                     makeComment(e.target[0].value,item._id)
                                 }}>
                                   <input type="text" placeholder="add a comment" />
+
                                 </form>
 
                             </div>

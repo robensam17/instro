@@ -16,17 +16,16 @@ const NavBar = ()=>{
            return [
              <nav className="nav-extended">
               <div className="nav-wrapper" >
-              <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i data-target="modal1" className="large material-icons modal-trigger " style={{color:"black"}}>search</i></a>
+              <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
               <ul id="nav-mobile" class="right hide-on-med-and-down" style={{backgroudColor:"black"}} >
               </ul>
   </div>
   <div className="nav-content " >
               <ul id="nav-content" className="tabs tabs-transparent " >
+            <li key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black"}}>search</i></li>
             <li key="2"><Link to="/profile">Profile</Link></li>
             <li key="3"><Link to="/create">Post</Link></li>
             <li key="4"><Link to="/myfollowingpost">Followers</Link></li>
-
-
             <li  key="5">
             <div>
              <button className="btn #c62828 red darken-3"
@@ -51,8 +50,8 @@ const NavBar = ()=>{
            ]
        }else{
          return [
-          <li className="right" key="6"><Link to="/signin">Signin</Link></li>,
-          <li className="right" key="7"><Link to="/signup">Signup</Link></li>
+          <li zz key="6"><Link to="/signin">Signin</Link></li>,
+          <li  key="7"><Link to="/signup">Signup</Link></li>
 
          ]
        }
@@ -77,7 +76,7 @@ const NavBar = ()=>{
     return(
         <nav className="nav-extended ">
         <div className="nav-wrapper white" >
-         <a href="/"  className="brand-logo middle">Inst®o</a>
+          <Link to={state?"/":"/signin"} className="brand-logo middle">Inst®o</Link>
           <ul id="nav-mobile" className="right" >
              {renderList()}
 
