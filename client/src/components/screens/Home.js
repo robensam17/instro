@@ -111,6 +111,7 @@ const Home  = ()=>{
             setData(newData)
         })
     }
+
    return (
        <div className="home">
            {
@@ -121,7 +122,11 @@ const Home  = ()=>{
                             <h4 className="header" style={{padding:"6px", height:"13px"}}>
                             <img alt=""  style={{width:"35px",height:"35px",borderRadius:"100%", border:"1px solid grey"}}
                             src={item.postedBy.pic}
-                            />
+                            /><i className="material-icons" style={{
+                                float:"right"
+                            }}
+                            onClick={()=>deletePost(item._id)}
+                            >delete</i>
 
 
                             <Link style={{padding:"5px"}} className="brand-logo" to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name} <h6 style={{marginTop: "0px"}}><small>{item.createdAt}</small></h6></Link> {item.postedBy._id == state._id
@@ -143,10 +148,12 @@ const Home  = ()=>{
 
 
                             {
+
                                 item.likes.map(record=>{
                                     return(
                                     <p className="material-icons" style={{color:"red"}}>favorite </p>
-                                    )
+                                  
+                                  )
                                 })
                             }
 
