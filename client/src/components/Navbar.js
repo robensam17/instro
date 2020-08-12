@@ -24,7 +24,7 @@ const NavBar = ()=>{
               <li style={{paddingLeft:"40px"}} key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black", float: "right"}}>search</i></li>
 
 
-              <li style={{paddingLeft:"20px"}} key="2"><Link to="/profile">Profile</Link></li>
+              <li style={{paddingLeft:"10px"}} key="2"><Link to="/profile">Profile</Link></li>
               <li key="3"><Link to="/create">Post</Link></li>
               <li key="4"><Link to="/myfollowingpost">Followers</Link></li>
               <li key="5"> </li>
