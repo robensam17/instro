@@ -14,35 +14,22 @@ const NavBar = ()=>{
      const renderList = ()=>{
        if(state){
            return [
-             <nav className="nav-extended">
+
+
+             <nav className="nav-extended" key="">
               <div className="nav-wrapper" >
-              <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down" style={{backgroudColor:"black"}} >
-              </ul>
+
+              <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></a>
+
+              <li style={{paddingLeft:"40px"}} key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black", float: "right"}}>search</i></li>
+
+
+              <li style={{paddingLeft:"40px"}} key="2"><Link to="/profile">Profile</Link></li>
+              <li key="3"><Link to="/create">Post</Link></li>
+              <li key="4"><Link to="/myfollowingpost">Followers</Link></li>
+              <li key="5"> </li>
   </div>
-  <div className="nav-content " >
-              <ul id="nav-content" className="tabs tabs-transparent " >
-            <li key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black"}}>search</i></li>
-            <li key="2"><Link to="/profile">Profile</Link></li>
-            <li key="3"><Link to="/create">Post</Link></li>
-            <li key="4"><Link to="/myfollowingpost">Followers</Link></li>
-            <li  key="5">
-            <div>
-             <button className="btn #c62828 red darken-3"
-            onClick={()=>{
-              localStorage.clear()
-              dispatch({type:"CLEAR"})
-              history.push('/signin')
-            }}
-            >
-                Logout
-            </button>
-            </div>
-            </li>
 
-
-            </ul>
-             </div>
            </nav>
 
 
@@ -50,9 +37,13 @@ const NavBar = ()=>{
            ]
        }else{
          return [
-          <li zz key="6"><Link to="/signin">Signin</Link></li>,
-          <li  key="7"><Link to="/signup">Signup</Link></li>
+           <div className="nav-wrapper" >
 
+           <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></a>
+
+          <li style={{paddingLeft: "80px"}} key="6"><Link to="/signin">Signin</Link></li>,
+          <li  key="7"><Link to="/signup">Signup</Link></li>
+         </div>
          ]
        }
      }
@@ -71,23 +62,38 @@ const NavBar = ()=>{
         }).then(res=>res.json())
         .then(results=>{
           setUserDetails(results.user)
+          console.log(results.user)
         })
      }
     return(
         <nav className="nav-extended ">
         <div className="nav-wrapper white" >
-          <Link to={state?"/":"/signin"} className="brand-logo middle">Inst®o</Link>
+          <Link to={state?"/":"/signin"} className="brand-logo logos"
+          style={{
+            right: "16px",
+            background: "#e00",
+borderTopRightRadius: 5, borderTopLeftRadius: 6,
+             top: "-8rem",
+              position: "absolute",
+              left: ".8rem",
+              width: "12REM",
+              height: "15rem",
+              borderRadius: "33%",
+              pointerEvents: "none",
+}}
+          >Inst®o</Link>
           <ul id="nav-mobile" className="right" >
              {renderList()}
 
           </ul>
         </div>
-        <div id="modal1" class="modal" ref={searchModal} style={{color:"black"}}>
+        <div id="modal1" className="modal" ref={searchModal} style={{color:"black"}}>
           <div className="modal-content">
           <input
             type="text"
             placeholder="search users"
             value={search}
+            onChange={(e)=>fetchUsers(e.target.value)}
             onClick={(e)=>fetchUsers(e.target.value)}
             />
              <ul className="collection">

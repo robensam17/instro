@@ -6,6 +6,7 @@ const Home  = ()=>{
     const {state,dispatch} = useContext(UserContext)
     useEffect(()=>{
        fetch('/allpost',{
+           method:"get",
            headers:{
                "Authorization":"Bearer "+localStorage.getItem("jwt")
            }
@@ -30,7 +31,7 @@ const Home  = ()=>{
               })
           }).then(res=>res.json())
           .then(result=>{
-                   //   console.log(result)
+                      console.log(result)
             const newData = data.map(item=>{
                 if(item._id==result._id){
                     return result
@@ -119,8 +120,11 @@ const Home  = ()=>{
                    return(
 
                      <div className="card home-card" key={item._id}>
+
                             <h4 className="header" style={{padding:"6px", height:"13px"}}>
-                            <img alt=""  style={{width:"35px",height:"35px",borderRadius:"100%", border:"1px solid grey"}}
+
+                            <img alt=""  style={{width:"35px",height:"35px",borderRadius:"100%", border:"1px solid grey",
+                             float:"left"}}
                             src={item.postedBy.pic}
                             /><i className="material-icons" style={{
                                 float:"right"
@@ -129,12 +133,9 @@ const Home  = ()=>{
                             >delete</i>
 
 
-                            <Link style={{padding:"5px"}} className="brand-logo" to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name} <h6 style={{marginTop: "0px"}}><small>{item.createdAt}</small></h6></Link> {item.postedBy._id == state._id
-                            && <i className="material-icons" style={{
-                                float:"right"
-                            }}
-                            onClick={()=>deletePost(item._id)}
-                            >delete</i>
+                            <Link style={{padding:"5px" }} className="brand-logo" to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name}
+                            <h6 style={{marginTop: "0px"}}><small>{item.createdAt}</small></h6></Link> {item.postedBy._id == state._id
+
 
                           }</h4>
 
@@ -142,17 +143,17 @@ const Home  = ()=>{
                             <div style={{paddingTop:"50px"}} className="card-image">
                                 <img src={item.photo}/>
                        <h1 className="brand-logo card-title big" style={{fontSize: "30px", marginTop: "80px", marginBottom: "0px"}}>{item.title}</h1>
-                          <a onClick={()=>{likePost(item._id)}} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                          <a onClick={()=>{likePost(item._id)}} className="btn-floating halfway-fab waves-effect waves-light red"><i  className="material-icons">favorite</i></a>
                             </div>
                             <div className="card-content">
 
 
                             {
 
-                                item.likes.map(record=>{
+                                item.likes.map((record, index)=>{
                                     return(
-                                    <p className="material-icons" style={{color:"red"}}>favorite </p>
-                                  
+                                    <p key={index} className="material-icons" style={{color:"red"}}>favorite </p>
+
                                   )
                                 })
                             }

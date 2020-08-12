@@ -1,10 +1,12 @@
 import React,{useEffect,useState,useContext} from 'react'
+import {Link ,useHistory} from 'react-router-dom'
 import {UserContext} from '../../App'
 
 const Profile  = ()=>{
     const [mypics,setPics] = useState([])
     const {state,dispatch} = useContext(UserContext)
     const [image,setImage] = useState("")
+    const history = useHistory()
     useEffect(()=>{
        fetch('/mypost',{
            headers:{
@@ -99,6 +101,17 @@ const Profile  = ()=>{
                 <input className="file-path validate" type="text" />
             </div>
             </div>
+            </div>
+            <div>
+             <button style={{marginLeft: "10px"}}  className="btn #c62828 red darken-3"
+            onClick={()=>{
+              localStorage.clear()
+              dispatch({type:"CLEAR"})
+              history.push('/signin')
+            }}
+            >
+                Logout
+            </button>
             </div>
            <div className="gallery">
                {

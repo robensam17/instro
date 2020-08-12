@@ -71,6 +71,16 @@ li {
   margin: 10px auto;
 }
 
+.logos {
+      border-bottom-left-radius: 1111112% !important;
+
+    border-bottom-right-radius: 111120% !important;
+    /* border-top-left-radius: %; */
+    border-top-right-radius: 1111111% !important;
+
+
+}
+
 .flext{
  padding-left: 1px !important;
 }
