@@ -84,3 +84,7 @@ li {
 .flext{
  padding-left: 1px !important;
 }
+
+.nav-wrapper {
+  min-height: 56px !important;
+}

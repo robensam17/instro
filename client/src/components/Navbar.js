@@ -17,7 +17,7 @@ const NavBar = ()=>{
 
 
              <nav className="nav-extended" key="">
-              <div className="nav-wrapper" >
+              <div className="nav-wrapper" style={{minHeight:"0px !important"}} >
 
               <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></a>
 
@@ -73,7 +73,7 @@ const NavBar = ()=>{
             right: "16px",
             background: "#e00",
 borderTopRightRadius: 5, borderTopLeftRadius: 6,
-             top: "-8rem",
+             top: "-6rem",
               position: "absolute",
               left: ".8rem",
               width: "12REM",
