@@ -59,7 +59,7 @@ const Profile  = ()=>{
         setImage(file)
     }
    return (
-       <div className= "flext" style={{maxWidth:"550px",margin:"100px auto", paddingLeft: "1px"}}>
+       <div className= "flext" style={{maxWidth:"550px",margin:"80px auto", paddingLeft: "1px"}}>
            <div style={{
               margin:"18px 0px",
                borderBottom:"1px solid grey",
@@ -75,12 +75,12 @@ const Profile  = ()=>{
 
            }}>
                <div>
-                   <img alt="" style={{width:"160px",height:"160px",borderRadius:"80px"}}
+                   <img alt="" style={{width:"160px",height:"160px",borderRadius:"80px", border:"2px solid grey", padding:"2px"}}
                    src={state?state.pic:"loading"}
                    />
 
                </div>
-               <div>
+               <div style={{padding: "4px"}}>
                    <h4>{state?state.name:"loading"}</h4>
                    <h6>{state?state.email:"loading"}</h6>
                    <div style={{display:"flex",justifyContent:"space-between",width:"75%"}}>
@@ -91,7 +91,17 @@ const Profile  = ()=>{
 
                </div>
            </div>
-
+           <div>
+            <button style={{marginLeft: "10px"}}  className="btn #c62828 red darken-3"
+           onClick={()=>{
+             localStorage.clear()
+             dispatch({type:"CLEAR"})
+             history.push('/signin')
+           }}
+           >
+               Logout
+           </button>
+           </div>
             <div className="file-field input-field" style={{margin:"10px"}}>
             <div className="btn #64b5f6 blue darken-1">
                 <span>Update pic</span>
@@ -102,17 +112,7 @@ const Profile  = ()=>{
             </div>
             </div>
             </div>
-            <div>
-             <button style={{marginLeft: "10px"}}  className="btn #c62828 red darken-3"
-            onClick={()=>{
-              localStorage.clear()
-              dispatch({type:"CLEAR"})
-              history.push('/signin')
-            }}
-            >
-                Logout
-            </button>
-            </div>
+
            <div className="gallery">
                {
                    mypics.map(item=>{

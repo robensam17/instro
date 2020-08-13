@@ -85,7 +85,7 @@ const Profile  = ()=>{
            <div style={{
                display:"flex",
                justifyContent:"space-around",
-               margin:"18px 0px",
+               margin:"80px 0px 0px 0px",
                borderBottom:"1px solid grey",
                paddingLeft: "1px"
            }}>
@@ -141,7 +141,7 @@ const Profile  = ()=>{
        </div>
 
 
-       : <h2>loading...!</h2>}
+       : <h2 style={{padding: "80px"}}>loading...!</h2>}
 
        </>
    )

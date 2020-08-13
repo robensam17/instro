@@ -37,7 +37,7 @@ const NavBar = ()=>{
            ]
        }else{
          return [
-           <div className="nav-wrapper" >
+           <div className="nav-wrapper" key="">
 
            <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></a>
 
@@ -101,7 +101,7 @@ borderTopRightRadius: 5, borderTopLeftRadius: 6,
                  return <Link to={item._id !== state._id ? "/profile/"+item._id:'/profile'} onClick={()=>{
                    M.Modal.getInstance(searchModal.current).close()
                    setSearch('')
-                 }}><li className="collection-item">{item.email}</li></Link>
+                 }}><li className="collection-item">{item.name}</li></Link>
                })}
 
               </ul>

@@ -13,6 +13,7 @@ const Home  = ()=>{
        }).then(res=>res.json())
        .then(result=>{
            console.log(result)
+           console.log(result.posts.likes)
            setData(result.posts)
 
 
@@ -35,8 +36,10 @@ const Home  = ()=>{
             const newData = data.map(item=>{
                 if(item._id==result._id){
                     return result
+                    console.log(result)
                 }else{
                     return item
+                      console.log(item)
                 }
             })
             setData(newData)
@@ -60,8 +63,10 @@ const Home  = ()=>{
             const newData = data.map(item=>{
                 if(item._id==result._id){
                     return result
+
                 }else{
                     return item
+
                 }
             })
             setData(newData)
@@ -142,7 +147,7 @@ const Home  = ()=>{
 
                             <div style={{paddingTop:"50px"}} className="card-image">
                                 <img src={item.photo}/>
-                       <h1 className="brand-logo card-title big" style={{fontSize: "30px", marginTop: "80px", marginBottom: "0px"}}>{item.title}</h1>
+                           <h1 className="brand-logo card-title big" style={{fontSize: "30px", marginTop: "80px", marginBottom: "0px"}}>{item.title}</h1>
                           <a onClick={()=>{likePost(item._id)}} className="btn-floating halfway-fab waves-effect waves-light red"><i  className="material-icons">favorite</i></a>
                             </div>
                             <div className="card-content">
@@ -172,7 +177,7 @@ const Home  = ()=>{
                                     e.preventDefault()
                                     makeComment(e.target[0].value,item._id)
                                 }}>
-                                  <input type="text" placeholder="add a comment" />
+                                  <input type="text" placeholder="add comment" />
 
                                 </form>
 
