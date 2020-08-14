@@ -19,7 +19,7 @@ const NavBar = ()=>{
              <nav className="nav-extended" key="">
               <div className="nav-wrapper" style={{minHeight:"0px !important"}} >
 
-              <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></a>
+              <Link to={state?"/":"/signin"}  data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></Link>
 
               <li style={{paddingLeft:"40px"}} key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black", float: "right"}}>search</i></li>
 
@@ -39,7 +39,7 @@ const NavBar = ()=>{
          return [
            <div className="nav-wrapper" key="">
 
-           <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></a>
+          <Link to={state?"/":"/signin"}  data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></Link>
 
           <li style={{paddingLeft: "80px"}} key="6"><Link to="/signin">Signin</Link></li>,
           <li  key="7"><Link to="/signup">Signup</Link></li>

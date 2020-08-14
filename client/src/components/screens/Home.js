@@ -13,7 +13,7 @@ const Home  = ()=>{
        }).then(res=>res.json())
        .then(result=>{
            console.log(result)
-           console.log(result.posts.likes)
+
            setData(result.posts)
 
 
@@ -28,7 +28,8 @@ const Home  = ()=>{
                   "Authorization":"Bearer "+localStorage.getItem("jwt")
               },
               body:JSON.stringify({
-                  postId:id
+                  postId:id,
+
               })
           }).then(res=>res.json())
           .then(result=>{

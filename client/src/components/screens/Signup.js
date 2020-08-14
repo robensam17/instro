@@ -10,8 +10,21 @@ const SignIn  = ()=>{
     const [url,setUrl] = useState(undefined)
     useEffect(()=>{
         if(url){
+
             uploadFields()
-        }
+        }   M.toast({html: "<h5>Welcome to Inst®o.</h5> ",inDuration: "3000",displayLength: "3000",classes:"#c62828 blue -10",
+        completeCallback: function(){M.toast({html: " <p>1- Sign up. </p>",inDuration: "5000",displayLength: "3000",classes:"#c62828 blue -10",
+        completeCallback: function(){M.toast({html: " <p>2- Post your best pic. </p>",inDuration: "5000",displayLength: "3000",classes:"#c62828 blue -10",
+        completeCallback: function(){M.toast({html: " <p>3- Give a ❤️ to the pic you love. </p>",inDuration: "5000",displayLength: "3000",classes:"#c62828 blue -10",
+        completeCallback: function(){M.toast({html: "<p>4- Pic with the most love on top. For all to see! </p>",inDuration: "5000",displayLength: "3000",classes:"#c62828 blue -10"})}})}})}
+      })}
+
+      })
+        // M.toast({html: " <p>1- Sign up. </p>",inDuration: "4000",displayLength: "5000",classes:"#c62828 blue -10"})
+        // M.toast({html: "<p>2- Post your best pic. </p>",inDuration: "8000",displayLength: "6000",classes:"#c62828 blue -10"})
+        // M.toast({html: "<p> 3- Give a heart to the pic you love. </p>",inDuration: "12000",displayLength: "7000",classes:"#c62828 blue -10"})
+        // M.toast({html: "<p>4- Pic with the most love on top. For all to see </p>",inDuration: "16000",displayLength: "8000",classes:"#c62828 blue -10"})
+
     },[url])
     const uploadPic = ()=>{
         const data = new FormData()
