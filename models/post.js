@@ -14,7 +14,7 @@ const postSchema = new mongoose.Schema({
         required:true
     },
     likes:[{type:ObjectId,ref:"User"}],
-
+    like:{type:Number},
     comments:[{
         text:String,
         postedBy:{type:ObjectId,ref:"User"}

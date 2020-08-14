@@ -23,7 +23,7 @@ const Reset  = ()=>{
               M.toast({html: data.error,classes:"#c62828 red darken-3"})
            }
            else{
-               M.toast({html:data.message,classes:"#43a047 green darken-1"})
+               M.toast({html:"<h5>Email has been sent. Check your spam.</h5> ......If you have hotmail you may have to send a few times",displayLength: "9000",classes:"#43a047 green darken-1"})
                history.push('/signin')
            }
         }).catch(err=>{

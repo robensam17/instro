@@ -9,10 +9,9 @@ const Post =  mongoose.model("Post")
 router.get('/allpost',requireLogin,(req,res)=>{
 
     Post.find()
-
     .populate("postedBy","_id name pic")
     .populate("comments.postedBy","_id name")
-    .sort('-createdAt')
+    .sort('-like')
     .then((posts)=>{
         res.json({posts})
     }).catch(err=>{
@@ -68,8 +67,13 @@ router.get('/mypost',requireLogin,(req,res)=>{
 })
 
 router.put('/like',requireLogin,(req,res)=>{
+
+
     Post.findByIdAndUpdate(req.body.postId,{
-        $push:{likes:req.user._id}
+          $inc:{"like":1},
+        $push:{likes:req.user._id},
+
+
 
     },{
         new:true
@@ -81,6 +85,7 @@ router.put('/like',requireLogin,(req,res)=>{
             return res.status(422).json({error:err})
         }else{
             res.json(result)
+           // console.log(req.body.likes)
         }
     })
 })
