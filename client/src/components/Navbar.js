@@ -3,6 +3,7 @@ import {Link ,useHistory} from 'react-router-dom'
 import {UserContext} from '../App'
 import M from 'materialize-css'
 const NavBar = ()=>{
+
     const  searchModal = useRef(null)
     const [search,setSearch] = useState('')
     const [userDetails,setUserDetails] = useState([])
@@ -11,14 +12,20 @@ const NavBar = ()=>{
      useEffect(()=>{
          M.Modal.init(searchModal.current)
      },[])
+     useEffect(() => {
+         var sidenav = document.querySelectorAll(".sidenav");
+         M.Sidenav.init(sidenav, {});
+       }, []);
      const renderList = ()=>{
        if(state){
            return [
 
-
+<div>
              <nav className="nav-extended" key="">
               <div className="nav-wrapper" style={{minHeight:"0px !important"}} >
-
+              <a href="#!" className="sidenav-trigger" data-target="mobile-nav">
+                       <i className="material-icons">menu</i>
+                     </a>
               <Link to={state?"/":"/signin"}  data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></Link>
 
               <li style={{paddingLeft:"40px"}} key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black", float: "right"}}>search</i></li>
@@ -30,11 +37,22 @@ const NavBar = ()=>{
               <li key="5"> </li>
   </div>
 
+
            </nav>
+             <ul className="sidenav blue-grey darken-4" id="mobile-nav">
+            <li><a href="#item1">Item 1</a></li>
+            <li><a href="#item2">Item 2</a></li>
+            <li><a href="#item3">Item 3</a></li>
+           </ul>
+</div>
+
+
 
 
 
            ]
+
+
        }else{
          return [
            <div className="nav-wrapper" key="">
