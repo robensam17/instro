@@ -6,7 +6,7 @@ import M from "materialize-css/dist/js/materialize.min.js"
 const NavBar = ()=>{
 
     const  searchModal = useRef(null)
-     
+
    let dropdownContent = document.querySelectorAll(".dropdownContent");
     const [search,setSearch] = useState('')
     const [userDetails,setUserDetails] = useState([])
@@ -32,19 +32,11 @@ function clickt() {
 
            return [
 
-<div className="navb">
+      <div className="navb">
 
-<a onClick={clickt()} href="#!" className="sidenav-trigger dropdown-trigger " data-target="dropdown1">
-<i className="material-icons brand-logo ">Inst®o</i>
-  </a>
-
-
-
-
-
-
-
-
+      <a onClick={clickt()} href="#!" className="sidenav-trigger dropdown-trigger " data-target="dropdown1">
+      <i className="material-icons brand-logo ">Inst®o</i>
+        </a>
 
       <ul style={{paddingLeft: "100px", transform: "translateX(-105%)" }}className="dropdownContent" id="dropdown1">
 
@@ -55,61 +47,10 @@ function clickt() {
        <li><Link to="/create" href="#!" style={{paddingLeft:"10px"}}><i class="material-icons" >add_circle</i></Link></li>
        <li><Link to="/profile" href="#!" style={{paddingLeft:"10px"}}><i class="material-icons">account_circle</i></Link></li>
        <div className="sidebar" style={{paddingTop: "50px"}}>
-       // <li><a href="#!">one</a></li>
-       // <li><a href="#!">two</a></li>
-       // <li><a href="#!">three</a></li>
-       // <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-       // <li><a href="#!"><i class="material-icons">account_circle</i>five</a></li>
-       // </div>
+       </div>
      </ul>
-
-  // </div>
-
-//  <li style={{paddingLeft:"10px"}} key="2"><Link to="/profile">Profile</Link></li>
-//               <li key="3"><Link to="/create">Post</Link></li>
-//               <li key="4"><Link to="/myfollowingpost">Followers</Link></li>
-
-
-
-
-
-
-
-
-
-// <div>
-//              <nav className="nav-extended" key="">
-//               <div className="nav-wrapper" style={{minHeight:"0px !important"}} >
-//               <a href="#" className="sidenav-trigger" data-target="mobile-nav">
-//                        <i className="material-icons">menu</i>
-//                      </a>
-//               <Link to={state?"/":"/signin"}  data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></Link>
-//
-//               <li style={{paddingLeft:"40px"}} key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black", float: "right"}}>search</i></li>
-//
-//
-//               <li style={{paddingLeft:"10px"}} key="2"><Link to="/profile">Profile</Link></li>
-//               <li key="3"><Link to="/create">Post</Link></li>
-//               <li key="4"><Link to="/myfollowingpost">Followers</Link></li>
-//               <li key="5"> </li>
-//   </div>
-//
-//
-//            </nav>
-//              <ul className="sidenav blue-grey darken-4" id="mobile-nav">
-//             <li><a href="#item1">Item 1</a></li>
-//             <li><a href="#item2">Item 2</a></li>
-//             <li><a href="#item3">Item 3</a></li>
-//            </ul>
-// </div>
-
-
-
-
-
+  </div>
            ]
-
-
        }else{
          return [
            <div className="nav-wrapper" key="">
@@ -141,7 +82,7 @@ function clickt() {
         })
      }
     return(
-        <nav className="nav-extended transparent"  >
+        <nav className="nav-extended "  >
         <div className="nav-wrapper " >
           <Link to={state?"/":"/signin"} className="brand-logo logos"
           style={{
