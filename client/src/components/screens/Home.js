@@ -1,9 +1,12 @@
 import React,{useState,useEffect,useContext} from 'react'
 import {UserContext} from '../../App'
 import {Link} from 'react-router-dom'
+
 const Home  = ()=>{
     const [data,setData] = useState([])
     const {state,dispatch} = useContext(UserContext)
+
+
     useEffect(()=>{
        fetch('/allpost',{
            method:"get",
@@ -149,7 +152,7 @@ const Home  = ()=>{
                           }</h4>
 
 
-                            <div style={{paddingTop:"50px"}} className="card-image">
+                            <div style={{paddingTop:"50px"}} className="card-image materialboxed ">
                                 <img alt="" src={item.photo}/>
                            <h1 className="brand-logo card-title big" style={{fontSize: "30px", marginTop: "80px", marginBottom: "0px"}}>{item.title}</h1>
                           <a onClick={()=>{likePost(item._id, item.likes)  }} className="btn-floating halfway-fab waves-effect waves-light red"><i  className="material-icons">favorite</i></a>

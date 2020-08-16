@@ -38,6 +38,7 @@ a{
 }
 
 .home-card{
+  position: relative;
   max-width: 500px;
   height: max-content;
   margin: 50px auto;
@@ -60,15 +61,36 @@ a{
 }
 
 .nav-extended {
-  background-color: white !important;
+  /* background-color: white !important; */
+  overflow: hidden !important;
+  z-index: 5;
+
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
+   /* opacity: 75%; */
+  background-color: rgba(0,0,0,0)!important;
+  border:none!important;
+  box-shadow: none!important;
+background: rgba(255, 255, 255, 0.3);
+}
+.navbar-wrapper nav{
+  background: rgba(255, 255, 255, 0.3);
 }
 
-nav ul {
+nav ul{
   width: 100% !important;
+    /* background-color: white !important; */
+
+
 }
+.nav-inner{
+    background: rgba(255, 255, 255, 0.3);
+  }
 
 li {
   margin: 10px auto;
+  opacity: 100%!important;
 }
 
 .logos {
@@ -77,9 +99,22 @@ li {
     border-bottom-right-radius: 111120% !important;
     /* border-top-left-radius: %; */
     border-top-right-radius: 1111111% !important;
-
+    right: 16px;
+    background: rgb(255, 0, 0);
+    border-radius: 33%;
+    top: -6rem;
+    position: absolute;
+    left: 0.8rem;
+    width: 12rem;
+    height: 15rem;
+    pointer-events: none;
+    opacity: 100% !important;
+    z-index: 1;
 
 }
+
+
+
 
 .flext{
  padding-left: 1px !important;
@@ -87,4 +122,35 @@ li {
 
 .nav-wrapper {
   min-height: 56px !important;
+  /* background: rgba(255, 255, 255, 0.3); */
 }
+
+.sidenav-overlay{
+  z-index: 3;
+  opacity: 0 !important;
+
+}
+.drag-target{
+
+}
+
+.sidebar {
+width: 0px !important;
+position: absolute !important;
+}
+.navb{
+  overflow: hidden !important;
+
+
+  /* position: fixed !important; */
+  top: 0 !important;
+  width: 100% !important;
+}
+.navbar-default{
+   border:none;
+   background: rgba(255, 255, 255, 0.3);
+ }
+
+ .home{
+   padding-top: 50px;
+ }

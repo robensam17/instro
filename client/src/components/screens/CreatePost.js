@@ -60,7 +60,7 @@ const CretePost = ()=>{
    return(
        <div className="card input-filed"
        style={{
-           margin:"30px auto",
+           margin:"100px auto",
            maxWidth:"500px",
            padding:"20px",
            textAlign:"center"
