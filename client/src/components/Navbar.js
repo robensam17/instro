@@ -16,13 +16,13 @@ const NavBar = ()=>{
          M.Modal.init(searchModal.current)
      },[])
      useEffect(() => {
-  let sidenav = document.querySelector('.sidenav');
+
          M.Sidenav.init(dropdownContent)
-       }, []);
+       }, );
 
 
 function clickt() {
-   let sidenav = document.querySelector('.sidenav');
+
  M.Sidenav.init(dropdownContent, {});
 
 }

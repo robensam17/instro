@@ -85,13 +85,13 @@ nav ul{
 
 
 }
-.nav-inner{
-    background: rgba(255, 255, 255, 0.3);
-  }
+/* .nav-inner{
+    background: rgba(255, 255, 255, 0.3); */
+  /* } */
 
 li {
   margin: 10px auto;
-  opacity: 100%!important;
+  /* opacity: 100%!important; */
 }
 
 .logos {
@@ -127,7 +127,7 @@ li {
 }
 
 .sidenav-overlay{
-  z-index: 3;
+  /* z-index: -1; */
   opacity: 0 !important;
 
 }
