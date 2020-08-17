@@ -39,7 +39,7 @@ const SignIn  = ()=>{
         })
     }
    return (
-      <div className="mycard">
+      <div className="mycard"  style={{marginTop: "75px"}}>
           <div className="card auth-card input-field">
             <h2>Inst®o</h2>
             <input

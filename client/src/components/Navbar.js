@@ -55,10 +55,10 @@ function clickt() {
          return [
            <div className="nav-wrapper" key="">
 
-          <Link to={state?"/":"/signin"}  data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo logos">Insta®o</i></Link>
+          <Link to={state?"/":"/signin"}  data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo ">Insta®o</i></Link>
 
-          <li style={{paddingLeft: "80px"}} key="6"><Link to="/signin">Signin</Link></li>,
-          <li  key="7"><Link to="/signup">Signup</Link></li>
+          <li style={{paddingLeft: "30px"}} key="6"><Link to="/signin"><i class="material-icons">account_circle</i></Link></li>,
+          <li  key="7"><Link to="/signup"><i class="material-icons" >add_circle</i></Link></li>
          </div>
          ]
        }
@@ -96,6 +96,7 @@ borderTopRightRadius: 5, borderTopLeftRadius: 1,
               height: "12rem",
               borderRadius: "33%",
               pointerEvents: "none",
+
               opacity: "100%"
 }}
           >Inst®o</Link>
