@@ -111,7 +111,6 @@ li {
     pointer-events: none;
 
     z-index: 1;
-
 }
 
 
@@ -155,3 +154,30 @@ position: absolute !important;
    padding-left: 5px;
    padding-right: 5px;
  }
+
+@media only screen and (min-width: 601px){
+  .nav-extended   {
+        overflow: hidden !important;
+        height: 70px!important;
+  }
+}
+
+ @media only screen and (min-width: 992px) {
+   .sidenav-trigger {
+    display: flex!important;
+    padding-left: 40px;
+    padding-top: 10px!important;
+   }
+   .dropdownContent{
+     padding-left: 150px!important;
+   }
+  .logos{
+       left: -4rem!important;
+
+     }
+    .log {
+       padding-left: 10px;
+    left: 20px!important;
+    padding-top: 10px!important;
+     }
+   }

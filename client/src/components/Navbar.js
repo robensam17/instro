@@ -34,7 +34,7 @@ function clickt() {
 
       <div className="navb">
 
-      <a onClick={clickt()} href="#!" className="sidenav-trigger dropdown-trigger " data-target="dropdown1">
+      <a onClick={clickt()} href="#!" className="sidenav-trigger dropdown-trigger " style={{display: "flex !importatnt"}}data-target="dropdown1">
       <i className="material-icons brand-logo ">Inst®o</i>
         </a>
 
@@ -55,7 +55,7 @@ function clickt() {
          return [
            <div className="nav-wrapper" key="">
 
-          <Link to={state?"/":"/signin"}  data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo ">Insta®o</i></Link>
+          <Link to={state?"/":"/signin"}  data-target="mobile-demo" className="sidenav-trigger"><i style={{paddingLeft:"10px"}} className="material-icons brand-logo log">Insta®o</i></Link>
 
           <li style={{paddingLeft: "30px"}} key="6"><Link to="/signin"><i class="material-icons">account_circle</i></Link></li>,
           <li  key="7"><Link to="/signup"><i class="material-icons" >add_circle</i></Link></li>
